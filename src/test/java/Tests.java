@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class Tests {
 
 
-    @Test
+    @Test(groups = {"UC01"})
     public void ClickAboutInSatisfice() throws InterruptedException {
 
 
@@ -43,7 +43,7 @@ driver.quit();
 
     }
 
-    @Test
+    @Test(groups = {"UC01", "UC02"})
     public void ClickMethodologyInSatisfice() throws InterruptedException {
 
 
@@ -71,7 +71,7 @@ driver.quit();
 
     }
 
-    @Test
+    @Test(groups = {"UC01","UC02", "UC03"})
     public void ClickConsultingInSatisfice() throws InterruptedException {
 
 
