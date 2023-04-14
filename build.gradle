@@ -19,8 +19,36 @@ dependencies {
     testImplementation 'org.testng:testng:7.7.1'
     implementation 'org.seleniumhq.selenium:selenium-java:4.8.3'
     implementation 'io.github.bonigarcia:webdrivermanager:5.3.2'
+
+
 }
 
 test {
     useJUnitPlatform()
+}
+
+task UC01(type:Test){
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/resources/TESTNGXMLS/UC01.xml'
+    }
+}
+
+task UC02(type:Test){
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/resources/TESTNGXMLS/UC02.xml'
+    }
+}
+task UC03(type:Test){
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/resources/TESTNGXMLS/UC03.xml'
+    }
+}
+task Sanity(type:Test){
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/resources/TESTNGXMLS/Sanity.xml'
+    }
 }
