@@ -29,6 +29,7 @@ public class Tests {
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-browser-side-navigation");
         options.addArguments("--disable-gpu");
+        options.addArguments("--headless=new");
         driver = new ChromeDriver(options);
         //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -59,6 +60,7 @@ driver.quit();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-browser-side-navigation");
         options.addArguments("--disable-gpu");
+        options.addArguments("--headless=new");
         driver = new ChromeDriver(options);
         //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -87,6 +89,7 @@ driver.quit();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-browser-side-navigation");
         options.addArguments("--disable-gpu");
+        options.addArguments("--headless=new");
         driver = new ChromeDriver(options);
         //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -101,6 +104,32 @@ driver.quit();
 
     }
 
+    @Test(groups = {"Sanity"})
+    public void ClickAboutInSatisficeSanity() throws InterruptedException {
 
 
-}
+        WebDriver driver = null;
+        WebDriverManager.chromedriver().browserVersion("112.0.5615.50").setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("start-maximized");
+        options.addArguments("enable-automation");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-infobars");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-browser-side-navigation");
+        options.addArguments("--disable-gpu");
+        driver = new ChromeDriver(options);
+        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.get("https://www.satisfice.com/");
+
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//span[normalize-space()='About']")).click();
+        Thread.sleep(5000);
+        driver.quit();
+
+        System.out.println("CLICKED ABOUT, TEST PASS");
+
+
+    }
+    }

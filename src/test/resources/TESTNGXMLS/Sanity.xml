@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="UC01">
-    <test name="UC01">
+<suite name="Sanity">
+    <test name="Sanity">
         <groups>
             <run>
-                <include name="UC01"/>
+                <include name="Sanity"/>
             </run>
         </groups>
 
