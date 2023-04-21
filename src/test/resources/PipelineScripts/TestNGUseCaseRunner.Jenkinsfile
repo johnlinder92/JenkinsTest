@@ -26,10 +26,7 @@ pipeline {
     }
    post{
         always{
-            echo 'Job is done, now copying reports'
-        catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS'){
-           // reports()
-        }
+            echo 'Job is done'
 
         }
     }
