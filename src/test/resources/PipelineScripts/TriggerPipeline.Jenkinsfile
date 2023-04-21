@@ -62,7 +62,7 @@ def createPaths(){
 }
 
 def SanityTests(){
-    build job: 'SanityTests', propagate: false, wait: false,
+    build job: 'SanityTests', propagate: false, wait: true,
                 parameters: [string(name: 'BRANCH', value:params.BRANCH),string(name: 'PROGRAM_VERSION', value:params.PROGRAM_VERSION)]
 }
 
