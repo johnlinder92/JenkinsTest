@@ -56,10 +56,6 @@ pipeline {
     }
 }
 
-def createPaths(){
-    bat label: '', script: 'if not exist "C:\\\\Sogeti\\\\Test_Execution_Reports\\\\%PROGRAM_VERSION%\\\\Tests" mkdir "C:\\\\INCA\\\\Test_Execution_Reports\\\\%PROGRAM_VERSION%\\\\Tests"'
-    return true
-}
 
 def SanityTests(){
     build job: 'SanityTests', propagate: false, wait: true,
