@@ -17,15 +17,14 @@ pipeline {
                      def usecases = json['UseCases']
 
                         for (int i = 0; i < usecases.size(); ++i) {
-                            int numberOfRetries = 0;
+                            
                             def usecase = usecases[i]
                             echo usecase
                             Executors[i]={
                                 stage(usecase){
                                         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                                         retry(RETRY_AMOUNT as Integer){
-                                        echo 'Retry number: ' + numberOfRetries
-                                        numberOfRetries++
+                                       
                                             build job: 'TestNGUsecaseRunner',
                                                 parameters: [string(name: 'USE_CASE', value:usecase),
                                                     string(name: 'PROGRAM_VERSION', value:params.PROGRAM_VERSION),
