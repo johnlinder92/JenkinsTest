@@ -22,7 +22,7 @@ pipeline {
                             echo usecase
                             Executors[i]={
                                 stage(usecase){
-                                        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                                        
                                         retry(RETRY_AMOUNT as Integer){
                                        
                                             build job: 'TestNGUsecaseRunner',
@@ -30,7 +30,6 @@ pipeline {
                                                     string(name: 'PROGRAM_VERSION', value:params.PROGRAM_VERSION),
                                                     string(name: 'BRANCH', value:params.BRANCH)]
                                         }
-                                    }
                                 }
                             }
                        }
